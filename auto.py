@@ -1,29 +1,8 @@
 
 
-
+from motor import Motor
 from vehiculo import Vehiculo
 
-
-class Motor:
-    def __init__(self, tipo, cilindros, potencia):
-        self.__tipo = tipo  # Ejemplo: "Gasolina", "Diesel", "Eléctrico"
-        self.__cilindros = cilindros
-        self.__potencia = potencia  # En HP (caballos de fuerza)
-
-    @property
-    def tipo(self):
-        return self.__tipo
-
-    @property
-    def cilindros(self):
-        return self.__cilindros
-
-    @property
-    def potencia(self):
-        return self.__potencia
-
-    def __str__(self):
-        return f"Motor {self.__tipo} de {self.__cilindros} cilindros, {self.__potencia} HP"
 
 
 class Automovil(Vehiculo):
@@ -71,3 +50,17 @@ class Automovil(Vehiculo):
         maletero = "Abierto" if self.__maletero_abierto else "Cerrado"
         return f"{info_base}\nPuertas: {self.__numero_puertas} | Maletero: {maletero}\n{self.__motor}"
 
+
+if __name__ == "__main__":
+    # Crear un motor
+    motor_v6 = Motor("Gasolina", 6, 280)
+
+    # Crear un automóvil
+    auto = Automovil("Toyota", "Camry", 2023, 4, motor_v6)
+
+    print(auto)
+    print("\n" + "=" * 50 + "\n")
+
+    # Encender el automóvil
+    print(auto.encender())
+    print()
