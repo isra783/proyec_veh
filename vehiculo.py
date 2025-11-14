@@ -31,3 +31,20 @@ class Vehiculo:
     def año(self, valor):
         self.__año = valor
 
+  # ====== MÉTODOS DE COMPORTAMIENTO ======
+    def encender(self):
+        if not self.__encendido:
+            self.__encendido = True
+            return "El vehículo ha sido encendido."
+        return "El vehículo ya estaba encendido."
+
+    def apagar(self):
+        if self.__encendido:
+            self.__encendido = False
+            return "El vehículo ha sido apagado."
+        return "El vehículo ya estaba apagado."
+
+    # ====== MÉTODO STR ======
+    def __str__(self):
+        estado = "Encendido" if self.__encendido else "Apagado"
+        return f"Vehículo: {self.__marca} {self.__modelo} ({self.__año}) - Estado: {estado}"
