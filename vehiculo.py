@@ -3,6 +3,7 @@ class Vehiculo:
         self.__marca = marca
         self.__modelo = modelo
         self.__año = año
+        self.__encendido = False  # Inicializar el estado del vehículo
 
     # ----- MARCA -----
     @property
@@ -31,7 +32,12 @@ class Vehiculo:
     def año(self, valor):
         self.__año = valor
 
-  # ====== MÉTODOS DE COMPORTAMIENTO ======
+    # ----- ENCENDIDO -----
+    @property
+    def encendido(self):
+        return self.__encendido
+
+    # ====== MÉTODOS DE COMPORTAMIENTO ======
     def encender(self):
         if not self.__encendido:
             self.__encendido = True
@@ -48,3 +54,12 @@ class Vehiculo:
     def __str__(self):
         estado = "Encendido" if self.__encendido else "Apagado"
         return f"Vehículo: {self.__marca} {self.__modelo} ({self.__año}) - Estado: {estado}"
+
+
+if __name__ == "__main__":
+    # Crear un vehículo
+    auto = Vehiculo("Toyota", "Corolla", 2023)
+
+    # Ver estado inicial
+    print(auto)
+    print()
